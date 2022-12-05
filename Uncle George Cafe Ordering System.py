@@ -20,15 +20,17 @@ class Customer:
         ABC1.grid(row=0, column=0, columnspan=4, sticky=W)
         ABC2 = Frame(ABC, bd=14, width=400, height=488, padx=10, relief=RIDGE, bg='black')
         ABC2.grid(row=1, column=0, sticky=W)
-        ABC3 = Frame(ABC2, bd=14, width=370, height=340, padx=10, relief=RIDGE, bg='tan')
+        ABC3 = Frame(ABC2, bd=14, width=370, height=340, padx=10, relief=RIDGE, bg='#b16d3c')
         ABC3.grid(row=0, column=0, sticky=W)
         ABC4 = Frame(ABC2, bd=14, width=370, height=120, padx=10, relief=RIDGE, bg='#592c17')
         ABC4.grid(row=1, column=0, columnspan=4, sticky=W)
+        ABC5 = Frame(ABC, bd=14, width=460, height=490, padx=10, relief=RIDGE, bg='#b16d3c')
+        ABC5.grid(row=1, column=1, sticky=W)
         ABC6 = Frame(ABC, bd=14, width=460, height=488, padx=10, relief=RIDGE, bg='black')
-        ABC6.grid(row=1, column=1, sticky=W)
-        ABC7 = Frame(ABC6, bd=14, width=370, height=340, padx=10, relief=RIDGE, bg='#592c17')
+        ABC6.grid(row=1, column=2, sticky=W)
+        ABC7 = Frame(ABC6, bd=14, width=370, height=340, padx=10, relief=RIDGE, bg='#b16d3c')
         ABC7.grid(row=0, column=0, sticky=W)
-        ABC8 = Frame(ABC6, bd=14, width=370, height=120, padx=10, relief=RIDGE, bg='#592c17')
+        ABC8 = Frame(ABC6, bd=14, width=370, height=120, padx=10, relief=RIDGE, bg='#b16d3c')
         ABC8.grid(row=1, column=0, columnspan=4, sticky=W)
         
 
@@ -48,21 +50,6 @@ class Customer:
                               bd=5, bg='black', fg='white').grid(row=0,column=2)
 
 
-       #customer info 
-        CustomerInfo = StringVar()
-        CustomerRef = StringVar()
-
-
-        self.lblCustomerInfo = Label (ABC3, font=('arial',30,'bold'), text= 'Frappes',height = 1, fg='black', bg='tan', justify='right')
-        self.lblCustomerInfo.grid(row=0, column=0, sticky=W)
-        
-        CustomerRef.set(random.randint(19800,9875648))
-        
-        self.lblCus_Ref = Label (ABC4, font=('arial',15,'bold'), text='Customer Ref:', padx=3, fg='white', bg='#592c17')
-        self.lblCus_Ref.grid(row=1, column=0)
-        self.txtCus_Ref = Entry (ABC4, font=('arial',14,'bold'),textvariable=CustomerRef, width=20)
-        self.txtCus_Ref.grid(row=1, column=1,pady=3, padx=20)
-       
 
         #frappes
         var1 = IntVar()
@@ -225,82 +212,107 @@ class Customer:
                 self.txtHagdan_Bato.set('0')
 
 
-        self.Skyway = Checkbutton(ABC3, text='Skyway', variable=var1, onvalue=1, offvalue=0,font=('arial',15,'bold'), bg='tan', command=chkSkyway)
-        self.Skyway.grid(row=1, sticky=W)
-        self.txtSkyway = Entry(ABC3, font=('arial',12,'bold'), textvariable=E_Skyway, bd=8, width=20, justify='left',state=DISABLED)
-        self.txtSkyway.grid(row=1, column=1)
+        self.Skyway = Checkbutton(ABC5, text='Skyway\n P 129.00', variable=var1, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', command=chkSkyway)
+        self.Skyway.grid(row=2,column=0, sticky=W)
+        self.txtSkyway = Entry(ABC5, font=('arial',12,'bold'), textvariable=E_Skyway, bd=8, width=15, justify='left',state=DISABLED)
+        self.txtSkyway.grid(row=3, column=0)
 
-        self.Windblown = Checkbutton(ABC3, text='Windblown', variable=var2, onvalue=1, offvalue=0,font=('arial',15,'bold'), bg='tan', command=chkWindblown)
-        self.Windblown.grid(row=2, sticky=W)
-        self.txtWindblown = Entry(ABC3, font=('arial',12,'bold'), textvariable=E_Windblown, bd=8, width=20, justify='left',state=DISABLED)
-        self.txtWindblown.grid(row=2, column=1)
+        self.Windblown = Checkbutton(ABC5, text='Windblown\n P 129.00', variable=var2, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', command=chkWindblown)
+        self.Windblown.grid(row=2,column=1, sticky=W)
+        self.txtWindblown = Entry(ABC5, font=('arial',12,'bold'), textvariable=E_Windblown, bd=8, width=15, justify='left',state=DISABLED)
+        self.txtWindblown.grid(row=3, column=1)
 
-        self.Super_Sonic = Checkbutton(ABC3, text='Super Sonic', variable=var3, onvalue=1, offvalue=0,font=('arial',15,'bold'), bg='tan', command=chkSuper_Sonic)
-        self.Super_Sonic.grid(row=3, sticky=W)
-        self.txtSuper_Sonic = Entry(ABC3, font=('arial',12,'bold'), textvariable=E_Super_Sonic, bd=8, width=20, justify='left',state=DISABLED)
-        self.txtSuper_Sonic.grid(row=3, column=1)
+        self.Super_Sonic = Checkbutton(ABC5, text='Super Sonic\n P 129.00', variable=var3, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', command=chkSuper_Sonic)
+        self.Super_Sonic.grid(row=2,column=2, sticky=W)
+        self.txtSuper_Sonic = Entry(ABC5, font=('arial',12,'bold'), textvariable=E_Super_Sonic, bd=8, width=15, justify='left',state=DISABLED)
+        self.txtSuper_Sonic.grid(row=3, column=2)
 
-        self.Realtop = Checkbutton(ABC3, text='Realtop', variable=var4, onvalue=1, offvalue=0,font=('arial',15,'bold'), bg='tan', command=chkRealtop)
-        self.Realtop.grid(row=4, sticky=W)
-        self.txtRealtop = Entry(ABC3, font=('arial',12,'bold'), textvariable=E_Realtop, bd=8, width=20, justify='left',state=DISABLED)
-        self.txtRealtop.grid(row=4, column=1)
+        self.Realtop = Checkbutton(ABC5, text='Realtop\n P 129.00', variable=var4, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', command=chkRealtop)
+        self.Realtop.grid(row=2, column=3, sticky=W)
+        self.txtRealtop = Entry(ABC5, font=('arial',12,'bold'), textvariable=E_Realtop, bd=8, width=15, justify='left',state=DISABLED)
+        self.txtRealtop.grid(row=3, column=3)
 
-        self.Phenomenal = Checkbutton(ABC3, text='Phenomenal', variable=var5, onvalue=1, offvalue=0,font=('arial',15,'bold'), bg='tan', command=chkPhenomenal)
-        self.Phenomenal.grid(row=5, sticky=W)
-        self.txtPhenomenal = Entry(ABC3, font=('arial',12,'bold'), textvariable=E_Phenomenal, bd=8, width=20, justify='left',state=DISABLED)
-        self.txtPhenomenal.grid(row=5, column=1)
+        self.Phenomenal = Checkbutton(ABC5, text='Phenomenal\n P 129.00', variable=var5, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', command=chkPhenomenal)
+        self.Phenomenal.grid(row=2, column=4, sticky=W)
+        self.txtPhenomenal = Entry(ABC5, font=('arial',12,'bold'), textvariable=E_Phenomenal, bd=8, width=15, justify='left',state=DISABLED)
+        self.txtPhenomenal.grid(row=3, column=4)
 
-        self.Silver_Story = Checkbutton(ABC3, text='Silver Story', variable=var6, onvalue=1, offvalue=0,font=('arial',15,'bold'), bg='tan', command=chkSilver_Story)
-        self.Silver_Story.grid(row=6, sticky=W)
-        self.txtSilver_Story = Entry(ABC3, font=('arial',12,'bold'), textvariable=E_Silver_Story, bd=8, width=20, justify='left',state=DISABLED)
-        self.txtSilver_Story.grid(row=6, column=1)
+        self.Silver_Story = Checkbutton(ABC5, text='Silver Story\n P 139.00', variable=var6, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', command=chkSilver_Story)
+        self.Silver_Story.grid(row=2, column=5, sticky=W)
+        self.txtSilver_Story = Entry(ABC5, font=('arial',12,'bold'), textvariable=E_Silver_Story, bd=8, width=15, justify='left',state=DISABLED)
+        self.txtSilver_Story.grid(row=3, column=5)
 
-        self.Bulldozer = Checkbutton(ABC3, text='Bulldozer', variable=var7, onvalue=1, offvalue=0,font=('arial',15,'bold'), bg='tan', command=chkBulldozer)
-        self.Bulldozer.grid(row=1, column=2, sticky=W)
-        self.txtBulldozer = Entry(ABC3, font=('arial',12,'bold'), textvariable=E_Bulldozer, bd=8, width=20, justify='left',state=DISABLED)
-        self.txtBulldozer.grid(row=1, column=3)
+        self.Bulldozer = Checkbutton(ABC5, text='Bulldozer\n P 139.00', variable=var7, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', command=chkBulldozer)
+        self.Bulldozer.grid(row=5, column=0, sticky=W)
+        self.txtBulldozer = Entry(ABC5, font=('arial',12,'bold'), textvariable=E_Bulldozer, bd=8, width=15, justify='left',state=DISABLED)
+        self.txtBulldozer.grid(row=6, column=0)
 
-        self.Empire_King = Checkbutton(ABC3, text='Empire King', variable=var8, onvalue=1, offvalue=0,font=('arial',15,'bold'), bg='tan', command=chkEmpire_King)
-        self.Empire_King.grid(row=2, column=2, sticky=W)
-        self.txtEmpire_King = Entry(ABC3, font=('arial',12,'bold'), textvariable=E_Empire_King, bd=8, width=20, justify='left',state=DISABLED)
-        self.txtEmpire_King.grid(row=2, column=3)
+        self.Empire_King = Checkbutton(ABC5, text='Empire King\n P 139.00', variable=var8, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', command=chkEmpire_King)
+        self.Empire_King.grid(row=5, column=1, sticky=W)
+        self.txtEmpire_King = Entry(ABC5, font=('arial',12,'bold'), textvariable=E_Empire_King, bd=8, width=15, justify='left',state=DISABLED)
+        self.txtEmpire_King.grid(row=6, column=1)
 
-        self.Sky_Dancer = Checkbutton(ABC3, text='Sky Dancer', variable=var9, onvalue=1, offvalue=0,font=('arial',15,'bold'), bg='tan', command=chkSky_Dancer)
-        self.Sky_Dancer.grid(row=3, column=2, sticky=W)
-        self.txtSky_Dancer = Entry(ABC3, font=('arial',12,'bold'), textvariable=E_Sky_Dancer, bd=8, width=20, justify='left',state=DISABLED)
-        self.txtSky_Dancer.grid(row=3, column=3)
+        self.Sky_Dancer = Checkbutton(ABC5, text='Sky Dancer\n P 139.00', variable=var9, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', command=chkSky_Dancer)
+        self.Sky_Dancer.grid(row=5, column=2, sticky=W)
+        self.txtSky_Dancer = Entry(ABC5, font=('arial',12,'bold'), textvariable=E_Sky_Dancer, bd=8, width=15, justify='left',state=DISABLED)
+        self.txtSky_Dancer.grid(row=6, column=2)
 
-        self.Triple_Crown = Checkbutton(ABC3, text='Triple Crown', variable=var10, onvalue=1, offvalue=0,font=('arial',15,'bold'), bg='tan', command=chkTriple_Crown)
-        self.Triple_Crown.grid(row=4, column=2, sticky=W)
-        self.txtTriple_Crown = Entry(ABC3, font=('arial',12,'bold'), textvariable=E_Triple_Crown, bd=8, width=20, justify='left',state=DISABLED)
-        self.txtTriple_Crown.grid(row=4, column=3)
+        self.Triple_Crown = Checkbutton(ABC5, text='Triple Crown\n P 139.00', variable=var10, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', command=chkTriple_Crown)
+        self.Triple_Crown.grid(row=5, column=3, sticky=W)
+        self.txtTriple_Crown = Entry(ABC5, font=('arial',12,'bold'), textvariable=E_Triple_Crown, bd=8, width=15, justify='left',state=DISABLED)
+        self.txtTriple_Crown.grid(row=6, column=3)
 
-        self.Graceful_Lady = Checkbutton(ABC3, text='Graceful Lady', variable=var11, onvalue=1, offvalue=0,font=('arial',15,'bold'), bg='tan', command=chkGraceful_Lady)
-        self.Graceful_Lady.grid(row=5, column=2, sticky=W)
-        self.txtGraceful_Lady = Entry(ABC3, font=('arial',12,'bold'), textvariable=E_Graceful_Lady, bd=8, width=20, justify='left',state=DISABLED)
-        self.txtGraceful_Lady.grid(row=5, column=3)
+        self.Graceful_Lady = Checkbutton(ABC5, text='Graceful Lady\n P 139.00', variable=var11, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', command=chkGraceful_Lady)
+        self.Graceful_Lady.grid(row=5, column=4, sticky=W)
+        self.txtGraceful_Lady = Entry(ABC5, font=('arial',12,'bold'), textvariable=E_Graceful_Lady, bd=8, width=15, justify='left',state=DISABLED)
+        self.txtGraceful_Lady.grid(row=6, column=4)
 
-        self.Hagdan_Bato = Checkbutton(ABC3, text='Hagdan Bato', variable=var12, onvalue=1, offvalue=0,font=('arial',15,'bold'), bg='tan', command=chkHagdan_Bato)
-        self.Hagdan_Bato.grid(row=6, column=2, sticky=W)
-        self.txtHagdan_Bato = Entry(ABC3, font=('arial',12,'bold'), textvariable=E_Hagdan_Bato, bd=8, width=20, justify='left',state=DISABLED)
-        self.txtHagdan_Bato.grid(row=6, column=3)
+        self.Hagdan_Bato = Checkbutton(ABC5, text='Hagdan Bato\n P 139.00', variable=var12, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', command=chkHagdan_Bato)
+        self.Hagdan_Bato.grid(row=5, column=5, sticky=W)
+        self.txtHagdan_Bato = Entry(ABC5, font=('arial',12,'bold'), textvariable=E_Hagdan_Bato, bd=8, width=15, justify='left',state=DISABLED)
+        self.txtHagdan_Bato.grid(row=6, column=5)
         
 
-	#tax, subtotal, total cost
-        Sum = StringVar()
+	
+        #payment info 
+        PaymentInfo = StringVar()
+        CustomerRef = StringVar()
+        TotalQuantity = StringVar()
         TotalCost = StringVar()
+        MOP = StringVar()
+
+
+        self.lblPaymentInfo = Label (ABC3, font=('arial',20,'bold'), text= 'Payment Information', bd=2, fg='black', bg='#b16d3c', justify='right')
+        self.lblPaymentInfo.grid(row=0, column=0,columnspan=2, sticky=W)
+
+        CustomerRef.set(random.randint(19800,9875648))
+        
+        self.lblCus_Ref = Label (ABC3, font=('arial',12,'bold'), text='Customer Ref:', bd=2, fg='black', bg='#b16d3c')
+        self.lblCus_Ref.grid(row=1, column=0, sticky=W)
+        self.txtCus_Ref = Entry (ABC3, font=('arial',12,'bold'),textvariable=CustomerRef, state='readonly', width=15)
+        self.txtCus_Ref.grid(row=1, column=1,pady=3, padx=20)
+
+        self.lblTotalQuantity = Label (ABC3, font=('arial',12,'bold'), text='Total Quantity', bd=2, fg='black', bg='#b16d3c')
+        self.lblTotalQuantity.grid(row=2, column=0, sticky=W)
+        self.txtTotalQuantity = Entry (ABC3, font=('arial',12,'bold'),textvariable=TotalQuantity, state='readonly', width=15)
+        self.txtTotalQuantity.grid(row=2, column=1,pady=3, padx=20)
+        
+        self.lblTotalCost = Label (ABC3, font=('arial',12,'bold'), text='Total Cost', bd=2, fg='black', bg='#b16d3c')
+        self.lblTotalCost.grid(row=3, column=0, sticky=W)
+        self.txtTotalCost = Entry (ABC3, font=('arial',12,'bold'),textvariable=TotalCost,state='readonly', width=15)
+        self.txtTotalCost.grid(row=3, column=1,pady=3, padx=20)
+
+        self.lblMOP = Label (ABC3, font=('arial',12,'bold'), text='Mode of Payment:', padx=2, fg='black', bg='#b16d3c')
+        self.lblMOP.grid(row=4, column=0, sticky=W)
+        self.cboMOP = ttk.Combobox (ABC3,textvariable=MOP, state='readonly', font=('arial',12,'bold'), width=13)
+        self.cboMOP ['value']=('','Cash','GCash','COD')
+        self.cboMOP.current(0)
+        self.cboMOP.grid(row=4, column=1,pady=3, padx=20)
+
 
         
-        self.lblSum = Label (ABC4, font=('arial',30,'bold'), text='Total', fg='white', bg='#592c17', justify='right')
-        self.lblSum.grid(row=0, column=0, sticky=W)
-        
-        self.lblTotalCost = Label (ABC4, font=('arial',15,'bold'), text='Total Cost', bd=2, fg='white', bg='#592c17')
-        self.lblTotalCost.grid(row=1, column=2, sticky=W)
-        self.txtTotalCost = Entry (ABC4, font=('arial',13,'bold'),textvariable=TotalCost, bd=7, width=19)
-        self.txtTotalCost.grid(row=1, column=3,pady=3, padx=10)
-
-	#reciept
-        self.txtReciept = Text(ABC7, height=23, width=50, bd=10, font=('arial',15,'bold'))
+        #reciept
+        self.txtReciept = Text(ABC7, height=35, width=50, bd=10, font=('arial',9,'bold'))
         self.txtReciept.grid(row=0,column=0)
 
         #Prices and computation
@@ -323,26 +335,28 @@ class Customer:
             TCost = 'P', str('%.2f'%PriceOfFrappes)
             TotalCost.set(TCost)
 
-            self.txtReciept.insert(END,'\t\tUncle George Cafe\n')
-            self.txtReciept.insert(END,'\t\t\n')
-            self.txtReciept.insert(END,'CustomerRef: \t'+CustomerRef.get()+'\n')
-            self.txtReciept.insert(END,'Items\t\t\t\t'+'Cost of Items\n')
-            self.txtReciept.insert(END,'Skyway: \t\t\t\t           '+E_Skyway.get()+'\n')
-            self.txtReciept.insert(END,'Windblown: \t\t\t\t           '+E_Windblown.get()+'\n')
-            self.txtReciept.insert(END,'Super Sonic: \t\t\t\t           '+E_Super_Sonic.get()+'\n')
-            self.txtReciept.insert(END,'Realtop: \t\t\t\t           '+E_Realtop.get()+'\n')
-            self.txtReciept.insert(END,'Phenomenal: \t\t\t\t           '+E_Phenomenal.get()+'\n')
-            self.txtReciept.insert(END,'Silver Story: \t\t\t\t           '+E_Silver_Story.get()+'\n')
-            self.txtReciept.insert(END,'Bulldozer: \t\t\t\t           '+E_Bulldozer.get()+'\n')
-            self.txtReciept.insert(END,'Empire King: \t\t\t\t           '+E_Empire_King.get()+'\n')
-            self.txtReciept.insert(END,'Sky Dancer: \t\t\t\t           '+E_Sky_Dancer.get()+'\n')
-            self.txtReciept.insert(END,'Triple Crown: \t\t\t\t           '+E_Triple_Crown.get()+'\n')
-            self.txtReciept.insert(END,'Graceful Lady: \t\t\t\t           '+E_Graceful_Lady.get()+'\n')
-            self.txtReciept.insert(END,'Hagdan Bato: \t\t\t\t           '+E_Hagdan_Bato.get()+'\n')
+            self.txtReciept.insert(END,'\t\t        Uncle George Cafe\n')
+            self.txtReciept.insert(END,'\t1476 Vicente Cruz St. Corner Dimasalang Rd.,\n\t\t        Manila, Philippines\n\n')
+            self.txtReciept.insert(END,'CustomerRef: \t'+CustomerRef.get()+'\n\n')
+            self.txtReciept.insert(END,'Item\t\t\t\t'+'Quantity\n')
+            self.txtReciept.insert(END,'Skyway: \t\t\t\t'+E_Skyway.get()+'\n')
+            self.txtReciept.insert(END,'Windblown: \t\t\t\t'+E_Windblown.get()+'\n')
+            self.txtReciept.insert(END,'Super Sonic: \t\t\t\t'+E_Super_Sonic.get()+'\n')
+            self.txtReciept.insert(END,'Realtop: \t\t\t\t'+E_Realtop.get()+'\n')
+            self.txtReciept.insert(END,'Phenomenal: \t\t\t\t'+E_Phenomenal.get()+'\n')
+            self.txtReciept.insert(END,'Silver Story: \t\t\t\t'+E_Silver_Story.get()+'\n')
+            self.txtReciept.insert(END,'Bulldozer: \t\t\t\t'+E_Bulldozer.get()+'\n')
+            self.txtReciept.insert(END,'Empire King: \t\t\t\t'+E_Empire_King.get()+'\n')
+            self.txtReciept.insert(END,'Sky Dancer: \t\t\t\t'+E_Sky_Dancer.get()+'\n')
+            self.txtReciept.insert(END,'Triple Crown: \t\t\t\t'+E_Triple_Crown.get()+'\n')
+            self.txtReciept.insert(END,'Graceful Lady: \t\t\t\t'+E_Graceful_Lady.get()+'\n')
+            self.txtReciept.insert(END,'Hagdan Bato: \t\t\t\t'+E_Hagdan_Bato.get()+'\n')
 
             self.txtReciept.insert(END,'\nTotal Cost: \t\t\t\t'+str(TotalCost.get()))
-            
 
+            self.txtReciept.insert(END,'\n\n\t        This serves as your official reciept.\n\t           Thank you! Please come again.\n\n  For feedback message us @ Uncle George Cafe - Sampaloc\n')
+            
+            
         #Reset
         def Reset():
             self.txtReciept.delete('1.0',END)
@@ -391,14 +405,14 @@ class Customer:
                 
 
         #total, reset, exit buttons
-        self.btnReset = Button (ABC8, padx=14, pady=7, bd=5, fg='black', font=('arial',20,'bold'), width=9, height=2,
+        self.btnReset = Button (ABC8, padx=14, pady=7, bd=5, fg='black', font=('arial',16,'bold'), width=11, height=2,
                                 bg='tan', text='Reset', command=Reset).grid(row=0,column=0)
 
-        self.btnTotal = Button (ABC8, padx=14, pady=7, bd=5, fg='black', font=('arial',20,'bold'), width=9, height=2,
+        self.btnTotal = Button (ABC8, padx=14, pady=7, bd=5, fg='black', font=('arial',16,'bold'), width=11, height=2,
                                 bg='tan', text='Total', command=costOfItem).grid(row=0,column=1)
 
-        self.btnExit = Button (ABC8, padx=14, pady=7, bd=5, fg='black', font=('arial',20,'bold'), width=8, height=2,
-                                bg='tan', text='Exit', command=Exit).grid(row=0,column=2)
+        self.btnExit = Button (ABC, padx=14, pady=7, bd=5, fg='black', font=('arial',16,'bold'), width=20, height=2,
+                                bg='tan', text='Exit', command=Exit).grid(row=2,column=1)
 
 
         
