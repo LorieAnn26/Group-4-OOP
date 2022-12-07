@@ -462,7 +462,7 @@ class Customer:
             self.txtReciept.insert(END, '\nPayment: \t\t\t\t\t')
             self.txtReciept.insert(END, '\nChange: \t\t\t\t\t\n\n')
             self.txtReciept.insert(END,'------------------------------------------------------------------------------------------------')
-            self.txtReciept.insert(END,'\n\n\t        This serves as your official reciept.\n\t           Thank you! Please come again.\n\n       For feedback message us @ Uncle George Cafe - Sampaloc\n')
+            self.txtReciept.insert(END,'\n\n\t        This serves as your official receipt.\n\t           Thank you! Please come again.\n\n       For feedback message us @ Uncle George Cafe - Sampaloc\n')
 
 
         #Reset
