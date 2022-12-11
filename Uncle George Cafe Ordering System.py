@@ -33,6 +33,8 @@ class Customer:
         ABC7.grid(row=0, column=0, sticky=W)
         ABC8 = Frame(ABC6, bd=14, width=370, height=120, relief=RIDGE, bg='#b16d3c')
         ABC8.grid(row=1, column=0, columnspan=4, sticky=W)
+        ABC9 = Frame(ABC6, bd=14, width=460, height=488, relief=RIDGE, bg='#b16d3c')
+        ABC9.grid(row=2, column=0, sticky=W)
 
 
         #date, time, title
@@ -291,6 +293,7 @@ class Customer:
         TotalQuantity = StringVar()
         TotalCost = StringVar()
         MOP = StringVar()
+        Payment = StringVar()
 
 
         self.lblPaymentInfo = Label (ABC3, font=('arial',20,'bold'), text= 'Payment Information', bd=2, fg='black', bg='#b16d3c', justify='right')
@@ -319,6 +322,11 @@ class Customer:
         self.cboMOP ['value']=('','Cash','GCash','COD')
         self.cboMOP.current(0)
         self.cboMOP.grid(row=4, column=1,pady=3, padx=20)
+
+        self.lblPayment = Label(ABC3, font=('arial', 12, 'bold'), text='Payment:', padx=2, fg='black', bg='#b16d3c')
+        self.lblPayment.grid(row=5, column=0, sticky=W)
+        self.txtPayment = Entry(ABC3, font=('arial', 12, 'bold'), textvariable=Payment, state='normal', width=15)
+        self.txtPayment.grid(row=5, column=1, pady=3, padx=20)
 
         operator='' #7+9
         def buttonClick(numbers): #9
@@ -429,7 +437,7 @@ class Customer:
             Item12 = float(E_Hagdan_Bato.get())
 
             PriceOfFrappes = (Item1*129)+(Item2*129)+(Item3*129)+(Item4*129)+(Item5*129)+(Item6*139)+(Item7*139)+(Item8*139)+(Item9*139)+(Item10*139)+(Item11*139)+(Item12*139)
-            TCost = 'P', str('%.2f'%PriceOfFrappes)
+            TCost = ("Php " + str('%.2f'%PriceOfFrappes))
             TotalCost.set(TCost)
             Date2 = StringVar()
             Time2 = StringVar()
@@ -458,8 +466,8 @@ class Customer:
             self.txtReciept.insert(END,'------------------------------------------------------------------------------------------------\n')
             self.txtReciept.insert(END, '\nTotal Quantity: \t\t\t\t')
             self.txtReciept.insert(END, '\nTotal Cost: \t\t\t\t\t   ' + str(TotalCost.get()))
-            self.txtReciept.insert(END, '\nMode of Payment: \t\t\t\t\t\t' + str(MOP.get()))
-            self.txtReciept.insert(END, '\nPayment: \t\t\t\t\t')
+            self.txtReciept.insert(END, '\nMode of Payment: \t\t\t\t\t       ' + str(MOP.get()))
+            self.txtReciept.insert(END, '\nPayment: \t\t\t\t\t       ' + str(Payment.get()))
             self.txtReciept.insert(END, '\nChange: \t\t\t\t\t\n\n')
             self.txtReciept.insert(END,'------------------------------------------------------------------------------------------------')
             self.txtReciept.insert(END,'\n\n\t        This serves as your official receipt.\n\t           Thank you! Please come again.\n\n       For feedback message us @ Uncle George Cafe - Sampaloc\n')
@@ -497,8 +505,12 @@ class Customer:
             CustomerRef.set("")
             TotalCost.set("")
             MOP.set("")
+            Payment.set("")
 
-
+        # Sales
+        def Sales():
+                self.txtReciept = Text(ABC7, height=35, width=55, bd=10, font=('arial', 9, 'bold'))
+                self.txtReciept.grid(row=0, column=0)
 
         #Exit
         def Exit():
@@ -507,15 +519,25 @@ class Customer:
                 root.destroy()
                 return
 
+        # Save and Print Receipt
+        def Save():
+            self.txtReciept = Text(ABC7, height=35, width=55, bd=10, font=('arial', 9, 'bold'))
+            self.txtReciept.grid(row=0, column=0)
 
         #total, reset, exit buttons
-        self.btnReset = Button (ABC8, bd=5, fg='black', font=('arial',16,'bold'), width=15, height=2,
+        self.btnReset = Button(ABC8, bd=5, fg='black', font=('arial',16,'bold'), width=15, height=2,
                                 bg='tan', text='Reset', command=Reset).grid(row=0,column=0)
 
-        self.btnTotal = Button (ABC8, bd=5, fg='black', font=('arial',16,'bold'), width=14, height=2,
+        self.btnTotal = Button(ABC8, bd=5, fg='black', font=('arial',16,'bold'), width=14, height=2,
                                 bg='tan', text='Total', command=costOfItem).grid(row=0,column=1)
 
-        self.btnExit = Button (ABC2, padx=14, pady=7, bd=5, fg='black', font=('arial',16,'bold'), width=23, height=2,
+        self.btnSave = Button(ABC9, bd=5, fg='black', font=('arial', 16, 'bold'), width=30, height=2,
+                              bg='tan', text='Save & Print Receipt', command=Save).grid(row=2, column=0)
+
+        self.btnSales = Button(ABC2, padx=14, pady=7, bd=5, fg='black', font=('arial', 16, 'bold'), width=23, height=2,
+                               bg='tan', text='Sales', command=Sales).grid(row=2, column=0)
+
+        self.btnExit = Button(ABC2, padx=14, pady=7, bd=5, fg='black', font=('arial',16,'bold'), width=23, height=2,
                                 bg='tan', text='Exit', command=Exit).grid(row=2,column=0)
 
 
