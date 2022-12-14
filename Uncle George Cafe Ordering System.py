@@ -421,7 +421,8 @@ class Customer:
 
 
         #prices and computation
-        def costOfItem():
+        def PrintReceipt():
+            self.txtReciept.delete(1.0,END)
             CustomerRef.set(random.randint(19800,9875648))
             Item1 = int(E_Skyway.get())
             Item2 = int(E_Windblown.get())
@@ -491,23 +492,35 @@ class Customer:
             self.txtReciept.insert(END, Date2.get() + '\t\t\t\t\t' + Time2.get() + '\n')
             self.txtReciept.insert(END, '------------------------------------------------------------------------------------------------')
             self.txtReciept.insert(END,'\nItems\t\t\t\t\t'+'Cost\n')
-            self.txtReciept.insert(END,E_Skyway.get()+' Skyway \t\t\t\t\t'+Q_Skyway.get()+'\n')
-            self.txtReciept.insert(END,E_Windblown.get()+' Windblown \t\t\t\t\t'+Q_Windblown.get()+'\n')
-            self.txtReciept.insert(END,E_Super_Sonic.get()+' Super Sonic: \t\t\t\t\t'+Q_Super_Sonic.get()+'\n')
-            self.txtReciept.insert(END,E_Realtop.get()+' Realtop: \t\t\t\t\t'+Q_Realtop.get()+'\n')
-            self.txtReciept.insert(END,E_Phenomenal.get()+' Phenomenal: \t\t\t\t\t'+Q_Phenomenal.get()+'\n')
-            self.txtReciept.insert(END,E_Silver_Story.get()+' Silver Story: \t\t\t\t\t'+Q_Silver_Story.get()+'\n')
-            self.txtReciept.insert(END,E_Bulldozer.get()+' Bulldozer: \t\t\t\t\t'+Q_Bulldozer.get()+'\n')
-            self.txtReciept.insert(END,E_Empire_King.get()+' Empire King: \t\t\t\t\t'+Q_Empire_King.get()+'\n')
-            self.txtReciept.insert(END,E_Sky_Dancer.get()+' Sky Dancer: \t\t\t\t\t'+Q_Sky_Dancer.get()+'\n')
-            self.txtReciept.insert(END,E_Triple_Crown.get()+' Triple Crown: \t\t\t\t\t'+Q_Triple_Crown.get()+'\n')
-            self.txtReciept.insert(END,E_Graceful_Lady.get()+' Graceful Lady: \t\t\t\t\t'+Q_Graceful_Lady.get()+'\n')
-            self.txtReciept.insert(END,E_Hagdan_Bato.get()+' Hagdan Bato: \t\t\t\t\t'+Q_Hagdan_Bato.get()+'\n')
+            if E_Skyway.get()!='0':
+                self.txtReciept.insert(END,E_Skyway.get()+' Skyway \t\t\t\t\t'+Q_Skyway.get()+'\n')
+            if E_Windblown.get()!='0':
+                self.txtReciept.insert(END,E_Windblown.get()+' Windblown \t\t\t\t\t'+Q_Windblown.get()+'\n')
+            if E_Super_Sonic.get()!='0':
+                self.txtReciept.insert(END,E_Super_Sonic.get()+' Super Sonic: \t\t\t\t\t'+Q_Super_Sonic.get()+'\n')
+            if E_Realtop.get()!='0':
+                self.txtReciept.insert(END,E_Realtop.get()+' Realtop: \t\t\t\t\t'+Q_Realtop.get()+'\n')
+            if E_Phenomenal.get()!='0':
+                self.txtReciept.insert(END,E_Phenomenal.get()+' Phenomenal: \t\t\t\t\t'+Q_Phenomenal.get()+'\n')
+            if E_Silver_Story.get()!='0':
+                self.txtReciept.insert(END,E_Silver_Story.get()+' Silver Story: \t\t\t\t\t'+Q_Silver_Story.get()+'\n')
+            if E_Bulldozer.get()!='0':
+                self.txtReciept.insert(END,E_Bulldozer.get()+' Bulldozer: \t\t\t\t\t'+Q_Bulldozer.get()+'\n')
+            if E_Empire_King.get()!='0':
+                self.txtReciept.insert(END,E_Empire_King.get()+' Empire King: \t\t\t\t\t'+Q_Empire_King.get()+'\n')
+            if E_Sky_Dancer.get()!='0':
+                self.txtReciept.insert(END,E_Sky_Dancer.get()+' Sky Dancer: \t\t\t\t\t'+Q_Sky_Dancer.get()+'\n')
+            if E_Triple_Crown.get()!='0':
+                self.txtReciept.insert(END,E_Triple_Crown.get()+' Triple Crown: \t\t\t\t\t'+Q_Triple_Crown.get()+'\n')
+            if E_Graceful_Lady.get()!='0':
+                self.txtReciept.insert(END,E_Graceful_Lady.get()+' Graceful Lady: \t\t\t\t\t'+Q_Graceful_Lady.get()+'\n')
+            if E_Hagdan_Bato.get()!='0':
+                self.txtReciept.insert(END,E_Hagdan_Bato.get()+' Hagdan Bato: \t\t\t\t\t'+Q_Hagdan_Bato.get()+'\n')
             self.txtReciept.insert(END,'------------------------------------------------------------------------------------------------')
             self.txtReciept.insert(END, '\nTotal Quantity: \t\t\t\t\t' + str(TotalQuantity.get()))
             self.txtReciept.insert(END, '\nTotal Cost: \t\t\t\t\t' + str(TotalCost.get()))
             self.txtReciept.insert(END, '\nMode of Payment: \t\t\t\t\t' + str(MOP.get()))
-            self.txtReciept.insert(END, '\nPayment: \t\t\t\t\t' + 'Php' + str(Payment.get()))
+            self.txtReciept.insert(END, '\nPayment: \t\t\t\t\t' + 'Php ' + str(Payment.get()))
             self.txtReciept.insert(END, '\nChange: \t\t\t\t\t\n')
             self.txtReciept.insert(END,'------------------------------------------------------------------------------------------------')
             self.txtReciept.insert(END,'\n\n\t        This serves as your official receipt.\n\t           Thank you! Please come again.\n\n       For feedback message us @ Uncle George Cafe - Sampaloc\n')
@@ -570,7 +583,7 @@ class Customer:
                                 bg='tan', text='Reset', command=Reset).grid(row=0,column=0)
 
         self.btnTotal = Button(ABC8, bd=5, fg='black', font=('arial',16,'bold'), width=14, height=2,
-                                bg='tan', text='Total', command=costOfItem).grid(row=0,column=1)
+                                bg='tan', text='Total', command=PrintReceipt).grid(row=0,column=1)
 
         self.btnSave = Button(ABC9, bd=5, fg='black', font=('arial', 16, 'bold'), width=30, height=2,
                               bg='tan', text='Save & Print Receipt', command=Save).grid(row=2, column=0)
@@ -579,7 +592,7 @@ class Customer:
                                bg='tan', text='Sales', command=Sales).grid(row=2, column=0)
 
         self.btnExit = Button(ABC2, padx=14, pady=7, bd=5, fg='black', font=('arial',16,'bold'), width=23, height=2,
-                                bg='tan', text='Exit', command=Exit).grid(row=2,column=0)
+                                bg='tan', text='Exit', command=Exit).grid(row=3,column=0)
 
 
 
