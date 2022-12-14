@@ -213,6 +213,9 @@ class Customer:
                 self.txtHagdan_Bato.configure(state=DISABLED)
                 self.txtHagdan_Bato.set('0')
 
+        self.lblFrappes = Label (ABC5, font=('arial',20,'bold'), text= 'Frappes', height=2, bd=2, fg='black', bg='#b16d3c', justify='right')
+        self.lblFrappes.grid(row=0, column=0,columnspan=6, sticky='nsew')
+
         self.Skywayimg = PhotoImage(file="Skyway.png")
         self.Skyway = Checkbutton(ABC5, image=self.Skywayimg, text="Skyway\n P 129.00", variable=var1, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', relief=RIDGE, command=chkSkyway)
         self.Skyway.grid(row=1,column=0)
@@ -287,15 +290,14 @@ class Customer:
 
 
         #payment info
-        PaymentInfo = StringVar()
         CustomerRef = StringVar()
         TotalQuantity = StringVar()
         TotalCost = StringVar()
         MOP = StringVar()
         Payment = StringVar()
 
-        self.lblPaymentInfo = Label (ABC3, font=('arial',20,'bold'), text= 'Payment Information', bd=2, fg='black', bg='#b16d3c', justify='right')
-        self.lblPaymentInfo.grid(row=0, column=0,columnspan=2, sticky=W)
+        self.lblPaymentInfo = Label (ABC3, font=('arial',20,'bold'), text= 'Payment Information', height=2, bd=2, fg='black', bg='#b16d3c', justify='right')
+        self.lblPaymentInfo.grid(row=0, column=0,columnspan=2, sticky='nsew')
 
         CustomerRef.set(random.randint(19800,9875648))
 
@@ -316,7 +318,7 @@ class Customer:
 
         self.lblMOP = Label (ABC3, font=('arial',12,'bold'), text='Mode of Payment:', padx=2, fg='black', bg='#b16d3c')
         self.lblMOP.grid(row=4, column=0, sticky=W)
-        self.cboMOP = ttk.Combobox (ABC3,textvariable=MOP, state='readonly', font=('arial',12,'bold'), width=13)
+        self.cboMOP = ttk.Combobox (ABC3, textvariable=MOP, state='readonly', font=('arial',12,'bold'), width=13)
         self.cboMOP ['value']=('','Cash','GCash','COD')
         self.cboMOP.current(0)
         self.cboMOP.grid(row=4, column=1,pady=3, padx=20)
@@ -333,13 +335,6 @@ class Customer:
             global operator
             operator=''
             self.txtPayment.delete(0,END)
-        
-        def answer():
-            global operator
-            result=str(eval(operator))
-            self.txtPayment.delete(0,END)
-            self.txtPayment.insert(0,result)
-            operator=''
 
         self.lblPayment = Label(ABC3, font=('arial', 12, 'bold'), text='Payment:', padx=2, fg='black', bg='#b16d3c')
         self.lblPayment.grid(row=5, column=0, sticky=W)
@@ -350,69 +345,49 @@ class Customer:
 #       calculatorField=Entry(ABC4,font=('arial',14,'bold'),width=26,bd=4)
 #       calculatorField.grid(row=0,column=0,columnspan=4)
         
-        button7=Button(ABC4,text='7',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=4,
+        button7=Button(ABC4,text='7',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=7,
                     command=lambda:buttonClick('7'))
         button7.grid(row=1,column=0)
         
-        button8=Button(ABC4,text='8',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=4,
+        button8=Button(ABC4,text='8',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=6,
                     command=lambda:buttonClick('8'))
         button8.grid(row=1,column=1)
         
-        button9=Button(ABC4,text='9',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=4
+        button9=Button(ABC4,text='9',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=7
                     ,command=lambda:buttonClick('9'))
         button9.grid(row=1,column=2)
         
-        buttonPlus=Button(ABC4,text='+',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=5
-                        ,command=lambda:buttonClick('+'))
-        buttonPlus.grid(row=1,column=3)
-        
-        button4=Button(ABC4,text='4',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=4
+        button4=Button(ABC4,text='4',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=7
                     ,command=lambda:buttonClick('4'))
         button4.grid(row=2,column=0)
         
-        button5=Button(ABC4,text='5',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=4
+        button5=Button(ABC4,text='5',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=6
                     ,command=lambda:buttonClick('5'))
         button5.grid(row=2,column=1)
         
-        button6=Button(ABC4,text='6',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=4
+        button6=Button(ABC4,text='6',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=7
                     ,command=lambda:buttonClick('6'))
         button6.grid(row=2,column=2)
         
-        buttonMinus=Button(ABC4,text='-',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=5
-                        ,command=lambda:buttonClick('-'))
-        buttonMinus.grid(row=2,column=3)
-        
-        button1=Button(ABC4,text='1',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=4
+        button1=Button(ABC4,text='1',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=7
                     ,command=lambda:buttonClick('1'))
         button1.grid(row=3,column=0)
         
-        button2=Button(ABC4,text='2',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=4
+        button2=Button(ABC4,text='2',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=6
                     ,command=lambda:buttonClick('2'))
         button2.grid(row=3,column=1)
         
-        button3=Button(ABC4,text='3',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=4
+        button3=Button(ABC4,text='3',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=7
                     ,command=lambda:buttonClick('3'))
         button3.grid(row=3,column=2)
         
-        buttonMult=Button(ABC4,text='*',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=5
-                        ,command=lambda:buttonClick('*'))
-        buttonMult.grid(row=3,column=3)
-        
-        buttonAns=Button(ABC4,text='Ans',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=4,
-                        command=answer)
-        buttonAns.grid(row=4,column=0)
-        
-        buttonClear=Button(ABC4,text='Clear',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=4
+        buttonClear=Button(ABC4,text='On/Clear',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=14
                         ,command=clear)
-        buttonClear.grid(row=4,column=1)
+        buttonClear.grid(row=4,column=0, columnspan=2)
         
-        button0=Button(ABC4,text='0',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=4
+        button0=Button(ABC4,text='0',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=7
                     ,command=lambda:buttonClick('0'))
         button0.grid(row=4,column=2)
-        
-        buttonDiv=Button(ABC4,text='/',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=5,
-                        command=lambda:buttonClick('/'))
-        buttonDiv.grid(row=4,column=3)
 
 
         #reciept
@@ -554,6 +529,19 @@ class Customer:
             var10.set(0)
             var11.set(0)
             var12.set(0)
+
+            self.txtSkyway.configure(state=DISABLED)
+            self.txtWindblown.configure(state=DISABLED)
+            self.txtSuper_Sonic.configure(state=DISABLED)
+            self.txtRealtop.configure(state=DISABLED)
+            self.txtPhenomenal.configure(state=DISABLED)
+            self.txtSilver_Story.configure(state=DISABLED)
+            self.txtBulldozer.configure(state=DISABLED)
+            self.txtEmpire_King.configure(state=DISABLED)
+            self.txtSky_Dancer.configure(state=DISABLED)
+            self.txtTriple_Crown.configure(state=DISABLED)
+            self.txtGraceful_Lady.configure(state=DISABLED)
+            self.txtHagdan_Bato.configure(state=DISABLED)
 
             CustomerRef.set("0")
             TotalQuantity.set("0")
