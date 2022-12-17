@@ -21,11 +21,11 @@ class Customer:
         ABC1.grid(row=0, column=0, columnspan=4, sticky=W)
         ABC2 = Frame(ABC, bd=10, width=400, height=488, padx=10, relief=RIDGE, bg='black')
         ABC2.grid(row=1, column=0, sticky=W)
-        ABC3 = Frame(ABC2, bd=10, width=400, height=340, relief=RIDGE, bg='#b16d3c')
+        ABC3 = Frame(ABC2, bd=10, width=370, height=340, relief=RIDGE, bg='#b16d3c')
         ABC3.grid(row=0, column=0, sticky=W)
         ABC4 = Frame(ABC2, bd=14, width=370, height=120, padx=10, relief=RIDGE, bg='#592c17')
         ABC4.grid(row=1, column=0, columnspan=4, sticky=W)
-        ABC5 = Frame(ABC, bd=10, width=460, height=490,  padx=2, pady=3, relief=RIDGE, bg='#b16d3c')
+        ABC5 = Frame(ABC, bd=10, width=500, height=490,  padx=2, pady=3, relief=RIDGE, bg='#b16d3c')
         ABC5.grid(row=1, column=1, sticky=W)
         ABC6 = Frame(ABC, bd=12, width=460, height=488, relief=RIDGE, bg='black')
         ABC6.grid(row=1, column=2, sticky=W)
@@ -213,80 +213,80 @@ class Customer:
                 self.txtHagdan_Bato.configure(state=DISABLED)
                 self.txtHagdan_Bato.set('0')
 
-        self.lblFrappes = Label (ABC5, font=('arial',20,'bold'), text= 'Frappes', height=2, bd=2, fg='black', bg='#b16d3c', justify='right')
+        self.lblFrappes = Label (ABC5, font=('arial',20,'bold'), text= 'FRAPPES', height=2, bd=2, fg='black', bg='#b16d3c', justify='right')
         self.lblFrappes.grid(row=0, column=0,columnspan=6, sticky='nsew')
 
         self.Skywayimg = PhotoImage(file="Skyway.png")
         self.Skyway = Checkbutton(ABC5, image=self.Skywayimg, text="Skyway\n P 129.00", variable=var1, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', relief=RIDGE, command=chkSkyway)
         self.Skyway.grid(row=1,column=0)
         self.txtSkyway = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=100, textvariable=E_Skyway, state=DISABLED, bd=8, width=10)
-        self.txtSkyway.grid(row=2, column=0)
+        self.txtSkyway.grid(row=2, column=0, pady = (2, 25))
 
         self.WindBlownimg = PhotoImage(file="Windblown.png")
         self.Windblown = Checkbutton(ABC5, image=self.WindBlownimg, text='Windblown\n P 129.00', variable=var2, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', relief=RIDGE, command=chkWindblown)
         self.Windblown.grid(row=1,column=1)
         self.txtWindblown = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=100, textvariable=E_Windblown, state=DISABLED, bd=8, width=10)
-        self.txtWindblown.grid(row=2, column=1)
+        self.txtWindblown.grid(row=2, column=1, pady = (2, 25))
 
         self.Super_Sonicimg = PhotoImage(file="SuperSonic.png")
         self.Super_Sonic = Checkbutton(ABC5, image=self.Super_Sonicimg, text='Super Sonic\n P 129.00', variable=var3, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', relief=RIDGE, command=chkSuper_Sonic)
         self.Super_Sonic.grid(row=1,column=2)
         self.txtSuper_Sonic = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=100, textvariable=E_Super_Sonic, state=DISABLED, bd=8, width=10)
-        self.txtSuper_Sonic.grid(row=2, column=2)
+        self.txtSuper_Sonic.grid(row=2, column=2, pady = (2, 25))
 
         self.Realtopimg = PhotoImage(file="Realtop.png")
         self.Realtop = Checkbutton(ABC5, image=self.Realtopimg, text='Realtop\n P 129.00', variable=var4, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', relief=RIDGE, command=chkRealtop)
         self.Realtop.grid(row=1, column=3)
         self.txtRealtop = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=100, textvariable=E_Realtop, state=DISABLED, bd=8, width=10)
-        self.txtRealtop.grid(row=2, column=3)
+        self.txtRealtop.grid(row=2, column=3, pady = (2, 25))
 
         self.Phenomenalimg = PhotoImage(file="Phenomenal.png")
         self.Phenomenal = Checkbutton(ABC5, image=self.Phenomenalimg, text='Phenomenal\n P 129.00', variable=var5, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', relief=RIDGE, command=chkPhenomenal)
         self.Phenomenal.grid(row=1, column=4)
         self.txtPhenomenal = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=100, textvariable=E_Phenomenal, state=DISABLED, bd=8, width=10)
-        self.txtPhenomenal.grid(row=2, column=4)
+        self.txtPhenomenal.grid(row=2, column=4, pady = (2, 25))
 
         self.Silver_Storyimg = PhotoImage(file="SilverStory.png")
         self.Silver_Story = Checkbutton(ABC5, image=self.Silver_Storyimg, text='Silver Story\n P 139.00', variable=var6, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', relief=RIDGE, command=chkSilver_Story)
         self.Silver_Story.grid(row=1, column=5)
         self.txtSilver_Story = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=100, textvariable=E_Silver_Story, state=DISABLED, bd=8, width=10)
-        self.txtSilver_Story.grid(row=2, column=5)
+        self.txtSilver_Story.grid(row=2, column=5, pady = (2, 25))
 
         self.Bulldozerimg = PhotoImage(file="Bulldozer.png")
         self.Bulldozer = Checkbutton(ABC5,image=self.Bulldozerimg, text='Bulldozer\n P 139.00', variable=var7, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', relief=RIDGE, command=chkBulldozer)
         self.Bulldozer.grid(row=4, column=0)
         self.txtBulldozer = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=100, textvariable=E_Bulldozer, state=DISABLED, bd=8, width=10)
-        self.txtBulldozer.grid(row=5, column=0)
+        self.txtBulldozer.grid(row=5, column=0, pady = (2, 25))
 
         self.Empire_Kingimg = PhotoImage(file="EmpireKing.png")
         self.Empire_King = Checkbutton(ABC5, image=self.Empire_Kingimg, text='Empire King\n P 139.00', variable=var8, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', relief=RIDGE, command=chkEmpire_King)
         self.Empire_King.grid(row=4, column=1)
         self.txtEmpire_King = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=100, textvariable=E_Empire_King, state=DISABLED, bd=8, width=10)
-        self.txtEmpire_King.grid(row=5, column=1)
+        self.txtEmpire_King.grid(row=5, column=1, pady = (2, 25))
 
         self.Sky_Dancerimg = PhotoImage(file="SkyDancer.png")
         self.Sky_Dancer = Checkbutton(ABC5, image=self.Sky_Dancerimg, text='Sky Dancer\n P 139.00', variable=var9, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', relief=RIDGE, command=chkSky_Dancer)
         self.Sky_Dancer.grid(row=4, column=2)
         self.txtSky_Dancer = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=100, textvariable=E_Sky_Dancer, state=DISABLED, bd=8, width=10)
-        self.txtSky_Dancer.grid(row=5, column=2)
+        self.txtSky_Dancer.grid(row=5, column=2, pady = (2, 25))
 
         self.Triple_Crownimg = PhotoImage(file="TripleCrown.png")
         self.Triple_Crown = Checkbutton(ABC5, image=self.Triple_Crownimg, text='Triple Crown\n P 139.00', variable=var10, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', relief=RIDGE, command=chkTriple_Crown)
         self.Triple_Crown.grid(row=4, column=3)
         self.txtTriple_Crown = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=100, textvariable=E_Triple_Crown, state=DISABLED, bd=8, width=10)
-        self.txtTriple_Crown.grid(row=5, column=3)
+        self.txtTriple_Crown.grid(row=5, column=3, pady = (2, 25))
 
         self.Graceful_Ladyimg = PhotoImage(file="GracefulLady.png")
         self.Graceful_Lady = Checkbutton(ABC5, image=self.Graceful_Ladyimg, text='Graceful Lady\n P 139.00', variable=var11, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', relief=RIDGE, command=chkGraceful_Lady)
         self.Graceful_Lady.grid(row=4, column=4)
         self.txtGraceful_Lady = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=100, textvariable=E_Graceful_Lady, state=DISABLED, bd=8, width=10)
-        self.txtGraceful_Lady.grid(row=5, column=4)
+        self.txtGraceful_Lady.grid(row=5, column=4, pady = (2, 25))
 
         self.Hagdan_Batoimg = PhotoImage(file="HagdanBato.png")
         self.Hagdan_Bato = Checkbutton(ABC5, image=self.Hagdan_Batoimg, text='Hagdan Bato\n P 139.00', variable=var12, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', relief=RIDGE, command=chkHagdan_Bato)
         self.Hagdan_Bato.grid(row=4, column=5)
         self.txtHagdan_Bato = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=100, textvariable=E_Hagdan_Bato, state=DISABLED, bd=8, width=10)
-        self.txtHagdan_Bato.grid(row=5, column=5)
+        self.txtHagdan_Bato.grid(row=5, column=5, pady = (2, 25))
 
 
         #payment info
@@ -327,7 +327,7 @@ class Customer:
         operator='' #7+9
         def buttonClick(numbers): #9
             global operator
-            operator=operator+numbers
+            operator = operator+numbers
             self.txtPayment.delete(0,END)
             self.txtPayment.insert(END,operator)
         
@@ -460,6 +460,17 @@ class Customer:
             Time2 = StringVar()
             Date2.set(time.strftime("%d/%m/%y"))
             Time2.set(time.strftime("%H:%M:%S"))
+#            R_Payment = float(Payment.get())
+#            R_TotalCost = float(PriceOfFrappes.get())
+#            S_Payment = IntVar()
+#            S_TotalCost = IntVar()
+#            S_Payment.set(R_Payment)
+#            R_TotalCost.set(S_TotalCost)
+#            Change = S_TotalCost-S_Payment
+#            ChangeRec = IntVar()
+#            ChangeRec.set(Change)
+
+
 
             self.txtReciept.insert(END,'\t\t        Uncle George Cafe\n')
             self.txtReciept.insert(END,'\t1476 Vicente Cruz St. Corner Dimasalang Rd.,\n\t\t        Manila, Philippines\n\n')
@@ -472,31 +483,31 @@ class Customer:
             if E_Windblown.get()!='0':
                 self.txtReciept.insert(END,E_Windblown.get()+' Windblown \t\t\t\t\t'+Q_Windblown.get()+'\n')
             if E_Super_Sonic.get()!='0':
-                self.txtReciept.insert(END,E_Super_Sonic.get()+' Super Sonic: \t\t\t\t\t'+Q_Super_Sonic.get()+'\n')
+                self.txtReciept.insert(END,E_Super_Sonic.get()+' Super Sonic \t\t\t\t\t'+Q_Super_Sonic.get()+'\n')
             if E_Realtop.get()!='0':
-                self.txtReciept.insert(END,E_Realtop.get()+' Realtop: \t\t\t\t\t'+Q_Realtop.get()+'\n')
+                self.txtReciept.insert(END,E_Realtop.get()+' Realtop \t\t\t\t\t'+Q_Realtop.get()+'\n')
             if E_Phenomenal.get()!='0':
-                self.txtReciept.insert(END,E_Phenomenal.get()+' Phenomenal: \t\t\t\t\t'+Q_Phenomenal.get()+'\n')
+                self.txtReciept.insert(END,E_Phenomenal.get()+' Phenomenal \t\t\t\t\t'+Q_Phenomenal.get()+'\n')
             if E_Silver_Story.get()!='0':
-                self.txtReciept.insert(END,E_Silver_Story.get()+' Silver Story: \t\t\t\t\t'+Q_Silver_Story.get()+'\n')
+                self.txtReciept.insert(END,E_Silver_Story.get()+' Silver Story \t\t\t\t\t'+Q_Silver_Story.get()+'\n')
             if E_Bulldozer.get()!='0':
-                self.txtReciept.insert(END,E_Bulldozer.get()+' Bulldozer: \t\t\t\t\t'+Q_Bulldozer.get()+'\n')
+                self.txtReciept.insert(END,E_Bulldozer.get()+' Bulldozer \t\t\t\t\t'+Q_Bulldozer.get()+'\n')
             if E_Empire_King.get()!='0':
-                self.txtReciept.insert(END,E_Empire_King.get()+' Empire King: \t\t\t\t\t'+Q_Empire_King.get()+'\n')
+                self.txtReciept.insert(END,E_Empire_King.get()+' Empire King \t\t\t\t\t'+Q_Empire_King.get()+'\n')
             if E_Sky_Dancer.get()!='0':
-                self.txtReciept.insert(END,E_Sky_Dancer.get()+' Sky Dancer: \t\t\t\t\t'+Q_Sky_Dancer.get()+'\n')
+                self.txtReciept.insert(END,E_Sky_Dancer.get()+' Sky Dancer \t\t\t\t\t'+Q_Sky_Dancer.get()+'\n')
             if E_Triple_Crown.get()!='0':
-                self.txtReciept.insert(END,E_Triple_Crown.get()+' Triple Crown: \t\t\t\t\t'+Q_Triple_Crown.get()+'\n')
+                self.txtReciept.insert(END,E_Triple_Crown.get()+' Triple Crown \t\t\t\t\t'+Q_Triple_Crown.get()+'\n')
             if E_Graceful_Lady.get()!='0':
-                self.txtReciept.insert(END,E_Graceful_Lady.get()+' Graceful Lady: \t\t\t\t\t'+Q_Graceful_Lady.get()+'\n')
+                self.txtReciept.insert(END,E_Graceful_Lady.get()+' Graceful Lady \t\t\t\t\t'+Q_Graceful_Lady.get()+'\n')
             if E_Hagdan_Bato.get()!='0':
-                self.txtReciept.insert(END,E_Hagdan_Bato.get()+' Hagdan Bato: \t\t\t\t\t'+Q_Hagdan_Bato.get()+'\n')
+                self.txtReciept.insert(END,E_Hagdan_Bato.get()+' Hagdan Bato \t\t\t\t\t'+Q_Hagdan_Bato.get()+'\n')
             self.txtReciept.insert(END,'------------------------------------------------------------------------------------------------')
             self.txtReciept.insert(END, '\nTotal Quantity: \t\t\t\t\t' + str(TotalQuantity.get()))
             self.txtReciept.insert(END, '\nTotal Cost: \t\t\t\t\t' + str(TotalCost.get()))
             self.txtReciept.insert(END, '\nMode of Payment: \t\t\t\t\t' + str(MOP.get()))
             self.txtReciept.insert(END, '\nPayment: \t\t\t\t\t' + 'Php ' + str(Payment.get()))
-            self.txtReciept.insert(END, '\nChange: \t\t\t\t\t\n')
+            self.txtReciept.insert(END, '\nChange: \t\t\t\t\t'+ 'Php \n')
             self.txtReciept.insert(END,'------------------------------------------------------------------------------------------------')
             self.txtReciept.insert(END,'\n\n\t        This serves as your official receipt.\n\t           Thank you! Please come again.\n\n       For feedback message us @ Uncle George Cafe - Sampaloc\n')
 
