@@ -2,6 +2,8 @@ from tkinter import *
 from tkinter import ttk
 import random
 import tkinter.messagebox
+import mysql.connector
+import mysql.connector as mysql
 from datetime import datetime
 import time;
 
@@ -295,6 +297,7 @@ class Customer:
         TotalCost = StringVar()
         MOP = StringVar()
         Payment = StringVar()
+        TotalChange = StringVar()
 
         self.lblPaymentInfo = Label (ABC3, font=('arial',20,'bold'), text= 'Payment Information', height=2, bd=2, fg='black', bg='#b16d3c', justify='right')
         self.lblPaymentInfo.grid(row=0, column=0,columnspan=2, sticky='nsew')
@@ -453,22 +456,19 @@ class Customer:
 
             NoOfFrappes = Item1+Item2+Item3+Item4+Item5+Item6+Item7+Item8+Item9+Item10+Item11+Item12
             TotalQuantity.set(NoOfFrappes)
-            PriceOfFrappes = float(Frappe1+Frappe2+Frappe3+Frappe4+Frappe5+Frappe6+Frappe7+Frappe8+Frappe9+Frappe10+Frappe11+Frappe12)
+            PriceOfFrappes = (Frappe1+Frappe2+Frappe3+Frappe4+Frappe5+Frappe6+Frappe7+Frappe8+Frappe9+Frappe10+Frappe11+Frappe12)
+            Cost = PriceOfFrappes
             TCost = ("Php " + str('%.2f'%PriceOfFrappes))
-            TotalCost.set(TCost)
+            TotalCost.set(Cost)
             Date2 = StringVar()
             Time2 = StringVar()
             Date2.set(time.strftime("%d/%m/%y"))
             Time2.set(time.strftime("%H:%M:%S"))
-#            R_Payment = float(Payment.get())
-#            R_TotalCost = float(PriceOfFrappes.get())
-#            S_Payment = IntVar()
-#            S_TotalCost = IntVar()
-#            S_Payment.set(R_Payment)
-#            R_TotalCost.set(S_TotalCost)
-#            Change = S_TotalCost-S_Payment
-#            ChangeRec = IntVar()
-#            ChangeRec.set(Change)
+            Pay = Payment
+            Pay = (Payment.get())
+            Pay = int(Pay)
+            Change = Pay - Cost
+            TotalChange.set(Change)
 
 
 
@@ -506,9 +506,9 @@ class Customer:
             self.txtReciept.insert(END, '\nTotal Quantity: \t\t\t\t\t' + str(TotalQuantity.get()))
             self.txtReciept.insert(END, '\nTotal Cost: \t\t\t\t\t' + str(TotalCost.get()))
             self.txtReciept.insert(END, '\nMode of Payment: \t\t\t\t\t' + str(MOP.get()))
-            self.txtReciept.insert(END, '\nPayment: \t\t\t\t\t' + 'Php ' + str(Payment.get()))
-            self.txtReciept.insert(END, '\nChange: \t\t\t\t\t'+ 'Php \n')
-            self.txtReciept.insert(END,'------------------------------------------------------------------------------------------------')
+            self.txtReciept.insert(END, '\nPayment: \t\t\t\t\t' + 'Php ' + (Payment.get()))
+            self.txtReciept.insert(END, '\nChange: \t\t\t\t\t' + 'Php ' + (TotalChange.get()))
+            self.txtReciept.insert(END,'\n------------------------------------------------------------------------------------------------')
             self.txtReciept.insert(END,'\n\n\t        This serves as your official receipt.\n\t           Thank you! Please come again.\n\n       For feedback message us @ Uncle George Cafe - Sampaloc\n')
 
 
@@ -560,10 +560,60 @@ class Customer:
             MOP.set("")
             Payment.set("0")
 
+        # save and print receipt
+        def Save():
+            R_CustomerReference = CustomerRef.get()
+            R_Date = Date1.get()
+            R_Time = Time1.get()
+            R_TQuantity = TotalQuantity.get()
+            R_RTCost = TotalCost.get()
+            R_Modeofpayment = MOP.get()
+            R_RPayment = Payment.get()
+
+            mysqldb = mysql.connect(host="localhost", port="3306", user="root", password="", database="unclegeorgeos")
+            mycursor = mysqldb.cursor()
+            sql = "INSERT INTO  receipt (CustomerReference, Date, Time, TQuantity, RTCost, Modeofpayment, RPayment) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+            val = (R_CustomerReference, R_Date, R_Time, R_TQuantity, R_RTCost, R_Modeofpayment, R_RPayment)
+            mycursor.execute(sql, val)
+            mysqldb.commit()
+            tkinter.messagebox.askyesno("information", "Receipt has been saved!")
+
+            mysqldb.close()
         #sales
         def Sales():
-                self.txtReciept = Text(ABC7, height=35, width=55, bd=10, font=('arial', 9, 'bold'))
-                self.txtReciept.grid(row=0, column=0)
+            root = Tk()
+            root.geometry("1915x1000")
+            root.config(background='tan')
+            mysqldb = mysql.connect(host="localhost", port="3306", user="root", password="", database="unclegeorgeos")
+            mycursor = mysqldb.cursor()
+            mycursor.execute("SELECT * FROM receipt")
+            i = 0
+            self.lblSales = Label(root, text='\tSales\t', font=('arial', 15, 'bold'), bd=5).grid(row=0, column=0)
+            e = Label(root, width=10, text='Customer Ref No.', borderwidth=2, relief='ridge', anchor='w', bg='yellow')
+            e.grid(row=1, column=0)
+            e = Label(root, width=10, text='Date', borderwidth=2, relief='ridge', anchor='w', bg='yellow')
+            e.grid(row=1, column=1)
+            e = Label(root, width=10, text='Time', borderwidth=2, relief='ridge', anchor='w', bg='yellow')
+            e.grid(row=1, column=2)
+            e = Label(root, width=10, text='Total Quantity', borderwidth=2, relief='ridge', anchor='w', bg='yellow')
+            e.grid(row=1, column=3)
+            e = Label(root, width=10, text='Total Cost', borderwidth=2, relief='ridge', anchor='w', bg='yellow')
+            e.grid(row=1, column=4)
+            e = Label(root, width=10, text='Total Cost', borderwidth=2, relief='ridge', anchor='w', bg='yellow')
+            e.grid(row=1, column=5)
+            e = Label(root, width=10, text='Mode of Payment', borderwidth=2, relief='ridge', anchor='w', bg='yellow')
+            e.grid(row=1, column=6)
+            e = Label(root, width=10, text='Payment', borderwidth=2, relief='ridge', anchor='w', bg='yellow')
+            e.grid(row=1, column=7)
+            e = Label(root, width=10, text='Change', borderwidth=2, relief='ridge', anchor='w', bg='yellow')
+            e.grid(row=1, column=8)
+            i = 2
+            for receipt in mycursor:
+                for j in range(len(receipt)):
+                    e = Entry(root, width=10, fg='blue')
+                    e.grid(row=i, column=j)
+                    e.insert(END, receipt[j])
+                i = i + 1
 
         #exit
         def Exit():
@@ -572,10 +622,6 @@ class Customer:
                 root.destroy()
                 return
 
-        #save and print receipt
-        def Save():
-            self.txtReciept = Text(ABC7, height=35, width=55, bd=10, font=('arial', 9, 'bold'))
-            self.txtReciept.grid(row=0, column=0)
 
         #total, reset, exit buttons
         self.btnReset = Button(ABC8, bd=5, fg='black', font=('arial',16,'bold'), width=15, height=2,
