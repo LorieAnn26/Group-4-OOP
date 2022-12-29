@@ -569,11 +569,12 @@ class Customer:
             R_RTCost = TotalCost.get()
             R_Modeofpayment = MOP.get()
             R_RPayment = Payment.get()
+            R_TotalChange = TotalChange.get()
 
             mysqldb = mysql.connect(host="localhost", port="3306", user="root", password="", database="unclegeorgeos")
             mycursor = mysqldb.cursor()
-            sql = "INSERT INTO  receipt (CustomerReference, Date, Time, TQuantity, RTCost, Modeofpayment, RPayment) VALUES (%s, %s, %s, %s, %s, %s, %s)"
-            val = (R_CustomerReference, R_Date, R_Time, R_TQuantity, R_RTCost, R_Modeofpayment, R_RPayment)
+            sql = "INSERT INTO  receipt (CustomerReference, Date, Time, TQuantity, RTCost, Modeofpayment, RPayment, Rchange) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+            val = (R_CustomerReference, R_Date, R_Time, R_TQuantity, R_RTCost, R_Modeofpayment, R_RPayment, R_TotalChange)
             mycursor.execute(sql, val)
             mysqldb.commit()
             tkinter.messagebox.askyesno("information", "Receipt has been saved!")
