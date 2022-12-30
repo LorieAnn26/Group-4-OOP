@@ -504,7 +504,7 @@ class Customer:
                 self.txtReciept.insert(END,E_Hagdan_Bato.get()+' Hagdan Bato \t\t\t\t\t'+Q_Hagdan_Bato.get()+'\n')
             self.txtReciept.insert(END,'------------------------------------------------------------------------------------------------')
             self.txtReciept.insert(END, '\nTotal Quantity: \t\t\t\t\t' + str(TotalQuantity.get()))
-            self.txtReciept.insert(END, '\nTotal Cost: \t\t\t\t\t' + str(TotalCost.get()))
+            self.txtReciept.insert(END, '\nTotal Cost: \t\t\t\t\t' + 'Php ' + str(TotalCost.get()))
             self.txtReciept.insert(END, '\nMode of Payment: \t\t\t\t\t' + str(MOP.get()))
             self.txtReciept.insert(END, '\nPayment: \t\t\t\t\t' + 'Php ' + (Payment.get()))
             self.txtReciept.insert(END, '\nChange: \t\t\t\t\t' + 'Php ' + (TotalChange.get()))
@@ -566,55 +566,64 @@ class Customer:
             R_Date = Date1.get()
             R_Time = Time1.get()
             R_TQuantity = TotalQuantity.get()
-            R_RTCost = TotalCost.get()
+            R_TCost = TotalCost.get()
             R_Modeofpayment = MOP.get()
-            R_RPayment = Payment.get()
+            R_Payment = Payment.get()
             R_TotalChange = TotalChange.get()
 
-            mysqldb = mysql.connect(host="localhost", port="3306", user="root", password="", database="unclegeorgeos")
-            mycursor = mysqldb.cursor()
-            sql = "INSERT INTO  receipt (CustomerReference, Date, Time, TQuantity, RTCost, Modeofpayment, RPayment, Rchange) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
-            val = (R_CustomerReference, R_Date, R_Time, R_TQuantity, R_RTCost, R_Modeofpayment, R_RPayment, R_TotalChange)
-            mycursor.execute(sql, val)
+            mysqldb = mysql.connect(host="localhost", port="3306", user="root", password="", database="orderingsystemug")
+            cursor = mysqldb.cursor()
+            sql = "INSERT INTO  sales (Reference_No, Date, Time, Total_Quantity, Total_Cost, Mode_of_Payment, Payment, Total_Change) VALUES (%d, %d, %d, %d, %d, %s, %d, %d)"
+            val = (R_CustomerReference, R_Date, R_Time, R_TQuantity, R_TCost, R_Modeofpayment, R_Payment, R_TotalChange)
+            cursor.execute(sql, val)
             mysqldb.commit()
-            tkinter.messagebox.askyesno("information", "Receipt has been saved!")
+            tkinter.messagebox.showinfo("Uncle George Cafe Ordering System", "Receipt has been saved!")
 
             mysqldb.close()
+
         #sales
         def Sales():
-            root = Tk()
-            root.geometry("1915x1000")
-            root.config(background='tan')
-            mysqldb = mysql.connect(host="localhost", port="3306", user="root", password="", database="unclegeorgeos")
-            mycursor = mysqldb.cursor()
-            mycursor.execute("SELECT * FROM receipt")
+            root2 = Tk()
+            root2.geometry("1915x1000")
+            root2.config(background='tan')
+            mysqldb = mysql.connect(host="localhost", port="3306", user="root", password="", database="orderingsystemug")
+            cursor = mysqldb.cursor()
+            cursor.execute("SELECT * FROM sales")
             i = 0
-            self.lblSales = Label(root, text='\tSales\t', font=('arial', 15, 'bold'), bd=5).grid(row=0, column=0)
-            e = Label(root, width=10, text='Customer Ref No.', borderwidth=2, relief='ridge', anchor='w', bg='yellow')
-            e.grid(row=1, column=0)
-            e = Label(root, width=10, text='Date', borderwidth=2, relief='ridge', anchor='w', bg='yellow')
-            e.grid(row=1, column=1)
-            e = Label(root, width=10, text='Time', borderwidth=2, relief='ridge', anchor='w', bg='yellow')
-            e.grid(row=1, column=2)
-            e = Label(root, width=10, text='Total Quantity', borderwidth=2, relief='ridge', anchor='w', bg='yellow')
-            e.grid(row=1, column=3)
-            e = Label(root, width=10, text='Total Cost', borderwidth=2, relief='ridge', anchor='w', bg='yellow')
-            e.grid(row=1, column=4)
-            e = Label(root, width=10, text='Total Cost', borderwidth=2, relief='ridge', anchor='w', bg='yellow')
-            e.grid(row=1, column=5)
-            e = Label(root, width=10, text='Mode of Payment', borderwidth=2, relief='ridge', anchor='w', bg='yellow')
-            e.grid(row=1, column=6)
-            e = Label(root, width=10, text='Payment', borderwidth=2, relief='ridge', anchor='w', bg='yellow')
-            e.grid(row=1, column=7)
-            e = Label(root, width=10, text='Change', borderwidth=2, relief='ridge', anchor='w', bg='yellow')
-            e.grid(row=1, column=8)
+            ABCD = Frame(root2, bg='#592c17', bd=20, relief=RIDGE)
+            ABCD.grid()
+            ABCD1 = Frame(ABCD, bd=10, width=1800, height=200, relief=RIDGE, bg='black')
+            ABCD1.grid(row=0, column=0, columnspan=8, sticky=N)
+
+            self.lblTitle = Label(ABCD1, text='\t\t   Sales\t\t\t', font=('arial', 62, 'bold'), pady=9, bd=5, bg='black', fg='white', anchor = 'n').grid(row=0, column=1)
+
+
+            e = Label(ABCD, width=19, text='Customer Ref No.', font=('arial', 14, 'bold'), borderwidth=2, relief='ridge', anchor='n', bg='tan')
+            e.grid(row=1, column=0, pady = (5,0))
+            e = Label(ABCD, width=19, text='Date', font=('arial', 14, 'bold'), borderwidth=2, relief='ridge', anchor='n', bg='tan')
+            e.grid(row=1, column=1, pady = (5,0))
+            e = Label(ABCD, width=19, text='Time', font=('arial', 14, 'bold'), borderwidth=2, relief='ridge', anchor='n', bg='tan')
+            e.grid(row=1, column=2, pady = (5,0))
+            e = Label(ABCD, width=19, text='Total Quantity', font=('arial', 14, 'bold'), borderwidth=2, relief='ridge', anchor='n', bg='tan')
+            e.grid(row=1, column=3, pady = (5,0))
+            e = Label(ABCD, width=19, text='Total Cost', font=('arial', 14, 'bold'), borderwidth=2, relief='ridge', anchor='n', bg='tan')
+            e.grid(row=1, column=4, pady = (5,0))
+            e = Label(ABCD, width=19, text='Mode of Payment', font=('arial', 14, 'bold'), borderwidth=2, relief='ridge', anchor='n', bg='tan')
+            e.grid(row=1, column=5, pady = (5,0))
+            e = Label(ABCD, width=19, text='Payment', font=('arial', 14, 'bold'), borderwidth=2, relief='ridge', anchor='n', bg='tan')
+            e.grid(row=1, column=6, pady = (5,0))
+            e = Label(ABCD, width=19, text='Change', font=('arial', 14, 'bold'), borderwidth=2, relief='ridge', anchor='n', bg='tan')
+            e.grid(row=1, column=7, pady = (5,0))
             i = 2
-            for receipt in mycursor:
-                for j in range(len(receipt)):
-                    e = Entry(root, width=10, fg='blue')
+            for sales in cursor:
+                for j in range(len(sales)):
+                    e = Entry(ABCD, width=20, bg='blanched almond', fg='#592c17')
                     e.grid(row=i, column=j)
-                    e.insert(END, receipt[j])
+                    e.insert(END, sales[j])
                 i = i + 1
+
+
+
 
         #exit
         def Exit():
