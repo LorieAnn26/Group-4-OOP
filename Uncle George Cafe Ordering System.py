@@ -562,19 +562,19 @@ class Customer:
 
         # save and print receipt
         def Save():
-            R_CustomerReference = CustomerRef.get()
-            R_Date = Date1.get()
-            R_Time = Time1.get()
-            R_TQuantity = TotalQuantity.get()
-            R_TCost = TotalCost.get()
-            R_Modeofpayment = MOP.get()
-            R_Payment = Payment.get()
-            R_TotalChange = TotalChange.get()
+            r_CustomerReference = CustomerRef.get()
+            r_Date = Date1.get()
+            r_Time = Time1.get()
+            r_TQuantity = TotalQuantity.get()
+            r_TCost = TotalCost.get()
+            r_Modeofpayment = MOP.get()
+            r_Payment = Payment.get()
+            r_TotalChange = TotalChange.get()
 
             mysqldb = mysql.connect(host="localhost", port="3306", user="root", password="", database="orderingsystemug")
             cursor = mysqldb.cursor()
-            sql = "INSERT INTO  sales (Reference_No, Date, Time, Total_Quantity, Total_Cost, Mode_of_Payment, Payment, Total_Change) VALUES (%d, %d, %d, %d, %d, %s, %d, %d)"
-            val = (R_CustomerReference, R_Date, R_Time, R_TQuantity, R_TCost, R_Modeofpayment, R_Payment, R_TotalChange)
+            sql = "INSERT INTO `sales` (Reference_No,Date,Time,Total_Quantity,Total_Cost,Mode_of_Payment,Payment,Total_Change) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
+            val = (r_CustomerReference, r_Date, r_Time, r_TQuantity, r_TCost, r_Modeofpayment, r_Payment, r_TotalChange)
             cursor.execute(sql, val)
             mysqldb.commit()
             tkinter.messagebox.showinfo("Uncle George Cafe Ordering System", "Receipt has been saved!")
@@ -594,6 +594,9 @@ class Customer:
             ABCD.grid()
             ABCD1 = Frame(ABCD, bd=10, width=1800, height=200, relief=RIDGE, bg='black')
             ABCD1.grid(row=0, column=0, columnspan=8, sticky=N)
+            ABCD2 = Frame(ABCD, bd=10, width=200, height=80, relief=RIDGE, bg='black')
+            ABCD2.grid(row=8, column=0, sticky=W)
+
 
             self.lblTitle = Label(ABCD1, text='\t\t   Sales\t\t\t', font=('arial', 62, 'bold'), pady=9, bd=5, bg='black', fg='white', anchor = 'n').grid(row=0, column=1)
 
@@ -617,12 +620,20 @@ class Customer:
             i = 2
             for sales in cursor:
                 for j in range(len(sales)):
-                    e = Entry(ABCD, width=20, bg='blanched almond', fg='#592c17')
+                    e = Entry(ABCD, width=20, font=('arial', 14, 'bold'), justify=CENTER, borderwidth=2, bg='blanched almond', fg='#592c17')
                     e.grid(row=i, column=j)
                     e.insert(END, sales[j])
                 i = i + 1
 
+            def Exit2():
+                Exit = tkinter.messagebox.askyesno('Uncle George Cafe Sales','Are you sure you want to exit?')
+                if Exit > 0:
+                    root2.destroy()
+                    return
 
+            # Button for closing
+            self.Exit = Button(ABCD2, bd=1, fg='black', font=('arial', 14, 'bold'), width=10, height=2,
+                                  bg='tan', text='Exit', command=Exit2,).grid(row=3, column=4)
 
 
         #exit
