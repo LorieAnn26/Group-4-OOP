@@ -29,14 +29,14 @@ class Customer:
         ABC4.grid(row=1, column=0, columnspan=4, sticky=W)
         ABC5 = Frame(ABC, bd=10, width=500, height=490,  padx=2, pady=3, relief=RIDGE, bg='#b16d3c')
         ABC5.grid(row=1, column=1, sticky=W)
-        ABC6 = Frame(ABC, bd=12, width=460, height=488, relief=RIDGE, bg='black')
+        ABC6 = Frame(ABC, bd=12, width=470, height=488, relief=RIDGE, bg='black')
         ABC6.grid(row=1, column=2, sticky=W)
         ABC7 = Frame(ABC6, bd=14, width=370, height=340, relief=RIDGE, bg='#b16d3c')
         ABC7.grid(row=0, column=0, sticky=W)
         ABC8 = Frame(ABC6, bd=14, width=370, height=120, relief=RIDGE, bg='#b16d3c')
         ABC8.grid(row=1, column=0, columnspan=4, sticky=W)
         ABC9 = Frame(ABC6, bd=14, width=460, height=488, relief=RIDGE, bg='#b16d3c')
-        ABC9.grid(row=2, column=0, sticky=W)
+        ABC9.grid(row=2, column=0, sticky='nsew')
 
 
         #date, time, title
@@ -45,13 +45,13 @@ class Customer:
         Date1.set(time.strftime("%d/%m/%y"))
         Time1.set(time.strftime("%H:%M:%S"))
 
-        self.lblTitle = Label(ABC1, textvariable=Date1, font=('arial',30,'bold'), pady=9,
+        self.lblTitle = Label(ABC1, textvariable=Date1, font=('arial',32,'bold'), pady=9,
                               bd=5, bg='black', fg='white').grid(row=0,column=0)
 
         self.lblTitle = Label(ABC1, text='\tUncle George Cafe\t', font=('arial',62,'bold'), pady=9,
                               bd=5, bg='black', fg='white').grid(row=0,column=1)
 
-        self.lblTitle = Label(ABC1, textvariable=Time1, font=('arial',30,'bold'), pady=9,
+        self.lblTitle = Label(ABC1, textvariable=Time1, font=('arial',32,'bold'), pady=9,
                               bd=5, bg='black', fg='white').grid(row=0,column=2)
 
 
@@ -221,73 +221,73 @@ class Customer:
         self.Skywayimg = PhotoImage(file="Skyway.png")
         self.Skyway = Checkbutton(ABC5, image=self.Skywayimg, text="Skyway\n P 129.00", variable=var1, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', relief=RIDGE, command=chkSkyway)
         self.Skyway.grid(row=1,column=0)
-        self.txtSkyway = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=100, textvariable=E_Skyway, state=DISABLED, bd=8, width=10)
+        self.txtSkyway = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=1000, textvariable=E_Skyway, state=DISABLED, bd=8, width=10)
         self.txtSkyway.grid(row=2, column=0, pady = (2, 25))
 
         self.WindBlownimg = PhotoImage(file="Windblown.png")
         self.Windblown = Checkbutton(ABC5, image=self.WindBlownimg, text='Windblown\n P 129.00', variable=var2, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', relief=RIDGE, command=chkWindblown)
         self.Windblown.grid(row=1,column=1)
-        self.txtWindblown = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=100, textvariable=E_Windblown, state=DISABLED, bd=8, width=10)
+        self.txtWindblown = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=1000, textvariable=E_Windblown, state=DISABLED, bd=8, width=10)
         self.txtWindblown.grid(row=2, column=1, pady = (2, 25))
 
         self.Super_Sonicimg = PhotoImage(file="SuperSonic.png")
         self.Super_Sonic = Checkbutton(ABC5, image=self.Super_Sonicimg, text='Super Sonic\n P 129.00', variable=var3, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', relief=RIDGE, command=chkSuper_Sonic)
         self.Super_Sonic.grid(row=1,column=2)
-        self.txtSuper_Sonic = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=100, textvariable=E_Super_Sonic, state=DISABLED, bd=8, width=10)
+        self.txtSuper_Sonic = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=1000, textvariable=E_Super_Sonic, state=DISABLED, bd=8, width=10)
         self.txtSuper_Sonic.grid(row=2, column=2, pady = (2, 25))
 
         self.Realtopimg = PhotoImage(file="Realtop.png")
         self.Realtop = Checkbutton(ABC5, image=self.Realtopimg, text='Realtop\n P 129.00', variable=var4, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', relief=RIDGE, command=chkRealtop)
         self.Realtop.grid(row=1, column=3)
-        self.txtRealtop = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=100, textvariable=E_Realtop, state=DISABLED, bd=8, width=10)
+        self.txtRealtop = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=1000, textvariable=E_Realtop, state=DISABLED, bd=8, width=10)
         self.txtRealtop.grid(row=2, column=3, pady = (2, 25))
 
         self.Phenomenalimg = PhotoImage(file="Phenomenal.png")
         self.Phenomenal = Checkbutton(ABC5, image=self.Phenomenalimg, text='Phenomenal\n P 129.00', variable=var5, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', relief=RIDGE, command=chkPhenomenal)
         self.Phenomenal.grid(row=1, column=4)
-        self.txtPhenomenal = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=100, textvariable=E_Phenomenal, state=DISABLED, bd=8, width=10)
+        self.txtPhenomenal = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=1000, textvariable=E_Phenomenal, state=DISABLED, bd=8, width=10)
         self.txtPhenomenal.grid(row=2, column=4, pady = (2, 25))
 
         self.Silver_Storyimg = PhotoImage(file="SilverStory.png")
         self.Silver_Story = Checkbutton(ABC5, image=self.Silver_Storyimg, text='Silver Story\n P 139.00', variable=var6, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', relief=RIDGE, command=chkSilver_Story)
         self.Silver_Story.grid(row=1, column=5)
-        self.txtSilver_Story = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=100, textvariable=E_Silver_Story, state=DISABLED, bd=8, width=10)
+        self.txtSilver_Story = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=1000, textvariable=E_Silver_Story, state=DISABLED, bd=8, width=10)
         self.txtSilver_Story.grid(row=2, column=5, pady = (2, 25))
 
         self.Bulldozerimg = PhotoImage(file="Bulldozer.png")
         self.Bulldozer = Checkbutton(ABC5,image=self.Bulldozerimg, text='Bulldozer\n P 139.00', variable=var7, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', relief=RIDGE, command=chkBulldozer)
         self.Bulldozer.grid(row=4, column=0)
-        self.txtBulldozer = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=100, textvariable=E_Bulldozer, state=DISABLED, bd=8, width=10)
+        self.txtBulldozer = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=1000, textvariable=E_Bulldozer, state=DISABLED, bd=8, width=10)
         self.txtBulldozer.grid(row=5, column=0, pady = (2, 25))
 
         self.Empire_Kingimg = PhotoImage(file="EmpireKing.png")
         self.Empire_King = Checkbutton(ABC5, image=self.Empire_Kingimg, text='Empire King\n P 139.00', variable=var8, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', relief=RIDGE, command=chkEmpire_King)
         self.Empire_King.grid(row=4, column=1)
-        self.txtEmpire_King = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=100, textvariable=E_Empire_King, state=DISABLED, bd=8, width=10)
+        self.txtEmpire_King = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=1000, textvariable=E_Empire_King, state=DISABLED, bd=8, width=10)
         self.txtEmpire_King.grid(row=5, column=1, pady = (2, 25))
 
         self.Sky_Dancerimg = PhotoImage(file="SkyDancer.png")
         self.Sky_Dancer = Checkbutton(ABC5, image=self.Sky_Dancerimg, text='Sky Dancer\n P 139.00', variable=var9, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', relief=RIDGE, command=chkSky_Dancer)
         self.Sky_Dancer.grid(row=4, column=2)
-        self.txtSky_Dancer = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=100, textvariable=E_Sky_Dancer, state=DISABLED, bd=8, width=10)
+        self.txtSky_Dancer = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=1000, textvariable=E_Sky_Dancer, state=DISABLED, bd=8, width=10)
         self.txtSky_Dancer.grid(row=5, column=2, pady = (2, 25))
 
         self.Triple_Crownimg = PhotoImage(file="TripleCrown.png")
         self.Triple_Crown = Checkbutton(ABC5, image=self.Triple_Crownimg, text='Triple Crown\n P 139.00', variable=var10, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', relief=RIDGE, command=chkTriple_Crown)
         self.Triple_Crown.grid(row=4, column=3)
-        self.txtTriple_Crown = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=100, textvariable=E_Triple_Crown, state=DISABLED, bd=8, width=10)
+        self.txtTriple_Crown = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=1000, textvariable=E_Triple_Crown, state=DISABLED, bd=8, width=10)
         self.txtTriple_Crown.grid(row=5, column=3, pady = (2, 25))
 
         self.Graceful_Ladyimg = PhotoImage(file="GracefulLady.png")
         self.Graceful_Lady = Checkbutton(ABC5, image=self.Graceful_Ladyimg, text='Graceful Lady\n P 139.00', variable=var11, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', relief=RIDGE, command=chkGraceful_Lady)
         self.Graceful_Lady.grid(row=4, column=4)
-        self.txtGraceful_Lady = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=100, textvariable=E_Graceful_Lady, state=DISABLED, bd=8, width=10)
+        self.txtGraceful_Lady = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=1000, textvariable=E_Graceful_Lady, state=DISABLED, bd=8, width=10)
         self.txtGraceful_Lady.grid(row=5, column=4, pady = (2, 25))
 
         self.Hagdan_Batoimg = PhotoImage(file="HagdanBato.png")
         self.Hagdan_Bato = Checkbutton(ABC5, image=self.Hagdan_Batoimg, text='Hagdan Bato\n P 139.00', variable=var12, onvalue=1, offvalue=0,font=('arial',12,'bold'), bg='tan', relief=RIDGE, command=chkHagdan_Bato)
         self.Hagdan_Bato.grid(row=4, column=5)
-        self.txtHagdan_Bato = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=100, textvariable=E_Hagdan_Bato, state=DISABLED, bd=8, width=10)
+        self.txtHagdan_Bato = Spinbox(ABC5, font=('arial',17,'bold'), from_=0, to_=1000, textvariable=E_Hagdan_Bato, state=DISABLED, bd=8, width=10)
         self.txtHagdan_Bato.grid(row=5, column=5, pady = (2, 25))
 
 
@@ -299,8 +299,8 @@ class Customer:
         Payment = StringVar()
         TotalChange = StringVar()
 
-        self.lblPaymentInfo = Label (ABC3, font=('arial',20,'bold'), text= 'Payment Information', height=2, bd=2, fg='black', bg='#b16d3c', justify='right')
-        self.lblPaymentInfo.grid(row=0, column=0,columnspan=2, sticky='nsew')
+        self.lblPaymentInfo = Label (ABC3, font=('arial',20,'bold'), text= 'PAYMENT\n INFORMATION', height=3, bd=2, fg='black', bg='#b16d3c')
+        self.lblPaymentInfo.grid(row=0, column=0, columnspan=2, sticky='nsew')
 
         CustomerRef.set(random.randint(19800,9875648))
 
@@ -344,57 +344,54 @@ class Customer:
         self.txtPayment = Entry(ABC3, font=('arial', 12, 'bold'), textvariable=Payment, state='normal', width=15)
         self.txtPayment.grid(row=5, column=1, pady=3, padx=20)
 
-
-#       calculatorField=Entry(ABC4,font=('arial',14,'bold'),width=26,bd=4)
-#       calculatorField.grid(row=0,column=0,columnspan=4)
         
-        button7=Button(ABC4,text='7',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=7,
-                    command=lambda:buttonClick('7'))
+        button7=Button(ABC4,text='7',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=7,height=2
+                    ,command=lambda:buttonClick('7'))
         button7.grid(row=1,column=0)
         
-        button8=Button(ABC4,text='8',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=6,
-                    command=lambda:buttonClick('8'))
+        button8=Button(ABC4,text='8',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=6,height=2
+                    ,command=lambda:buttonClick('8'))
         button8.grid(row=1,column=1)
         
-        button9=Button(ABC4,text='9',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=7
+        button9=Button(ABC4,text='9',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=7,height=2
                     ,command=lambda:buttonClick('9'))
         button9.grid(row=1,column=2)
         
-        button4=Button(ABC4,text='4',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=7
+        button4=Button(ABC4,text='4',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=7,height=2
                     ,command=lambda:buttonClick('4'))
         button4.grid(row=2,column=0)
         
-        button5=Button(ABC4,text='5',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=6
+        button5=Button(ABC4,text='5',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=6,height=2
                     ,command=lambda:buttonClick('5'))
         button5.grid(row=2,column=1)
         
-        button6=Button(ABC4,text='6',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=7
+        button6=Button(ABC4,text='6',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=7,height=2
                     ,command=lambda:buttonClick('6'))
         button6.grid(row=2,column=2)
         
-        button1=Button(ABC4,text='1',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=7
+        button1=Button(ABC4,text='1',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=7,height=2
                     ,command=lambda:buttonClick('1'))
         button1.grid(row=3,column=0)
         
-        button2=Button(ABC4,text='2',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=6
+        button2=Button(ABC4,text='2',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=6,height=2
                     ,command=lambda:buttonClick('2'))
         button2.grid(row=3,column=1)
         
-        button3=Button(ABC4,text='3',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=7
+        button3=Button(ABC4,text='3',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=7,height=2
                     ,command=lambda:buttonClick('3'))
         button3.grid(row=3,column=2)
         
-        buttonClear=Button(ABC4,text='On/Clear',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=14
+        buttonClear=Button(ABC4,text='On/Clear',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=14,height=2
                         ,command=clear)
         buttonClear.grid(row=4,column=0, columnspan=2)
         
-        button0=Button(ABC4,text='0',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=7
+        button0=Button(ABC4,text='0',font=('arial',14,'bold'),fg='white',bg='black',bd=6,width=7,height=2
                     ,command=lambda:buttonClick('0'))
         button0.grid(row=4,column=2)
 
 
         #reciept
-        self.txtReciept = Text(ABC7, height=35, width=55, bd=10, font=('arial',9,'bold'))
+        self.txtReciept = Text(ABC7, height=33, width=57, bd=10, font=('arial',9,'bold'))
         self.txtReciept.grid(row=0,column=0)
 
 
@@ -458,7 +455,6 @@ class Customer:
             TotalQuantity.set(NoOfFrappes)
             PriceOfFrappes = (Frappe1+Frappe2+Frappe3+Frappe4+Frappe5+Frappe6+Frappe7+Frappe8+Frappe9+Frappe10+Frappe11+Frappe12)
             Cost = PriceOfFrappes
-            TCost = ("Php " + str('%.2f'%PriceOfFrappes))
             TotalCost.set(Cost)
             Date2 = StringVar()
             Time2 = StringVar()
@@ -595,7 +591,7 @@ class Customer:
             ABCD1 = Frame(ABCD, bd=10, width=1800, height=200, relief=RIDGE, bg='black')
             ABCD1.grid(row=0, column=0, columnspan=8, sticky=N)
             ABCD2 = Frame(ABCD, bd=10, width=200, height=80, relief=RIDGE, bg='black')
-            ABCD2.grid(row=8, column=0, sticky=W)
+            ABCD2.grid(row=8, column=0, sticky='snew')
 
 
             self.lblTitle = Label(ABCD1, text='\t\t   Sales\t\t\t', font=('arial', 62, 'bold'), pady=9, bd=5, bg='black', fg='white', anchor = 'n').grid(row=0, column=1)
@@ -648,10 +644,10 @@ class Customer:
         self.btnReset = Button(ABC8, bd=5, fg='black', font=('arial',16,'bold'), width=15, height=2,
                                 bg='tan', text='Reset', command=Reset).grid(row=0,column=0)
 
-        self.btnTotal = Button(ABC8, bd=5, fg='black', font=('arial',16,'bold'), width=14, height=2,
+        self.btnTotal = Button(ABC8, bd=5, fg='black', font=('arial',16,'bold'), width=15, height=2,
                                 bg='tan', text='Total', command=PrintReceipt).grid(row=0,column=1)
 
-        self.btnSave = Button(ABC9, bd=5, fg='black', font=('arial', 16, 'bold'), width=30, height=2,
+        self.btnSave = Button(ABC9, bd=5, fg='black', font=('arial', 16, 'bold'), width=31, height=2,
                               bg='tan', text='Save & Print Receipt', command=Save).grid(row=2, column=0)
 
         self.btnSales = Button(ABC2, padx=14, pady=7, bd=5, fg='black', font=('arial', 16, 'bold'), width=23, height=2,
