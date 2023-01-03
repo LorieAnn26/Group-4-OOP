@@ -589,9 +589,9 @@ class Customer:
             ABCD = Frame(root2, bg='#592c17', bd=20, relief=RIDGE)
             ABCD.grid()
             ABCD1 = Frame(ABCD, bd=10, width=1800, height=200, relief=RIDGE, bg='black')
-            ABCD1.grid(row=0, column=0, columnspan=8, sticky=N)
-            ABCD2 = Frame(ABCD, bd=10, width=200, height=80, relief=RIDGE, bg='black')
-            ABCD2.grid(row=8, column=0, sticky='snew')
+            ABCD1.grid(row=0, column=0, columnspan=8, sticky='N')
+            ABCD2 = Frame(root2, bd=5, width=1800, height=2, relief=RIDGE, bg='black')
+            ABCD2.grid(row=3, column=0, sticky='S', pady = (5,0))
 
 
             self.lblTitle = Label(ABCD1, text='\t\t   Sales\t\t\t', font=('arial', 62, 'bold'), pady=9, bd=5, bg='black', fg='white', anchor = 'n').grid(row=0, column=1)
@@ -628,8 +628,8 @@ class Customer:
                     return
 
             # Button for closing
-            self.Exit = Button(ABCD2, bd=1, fg='black', font=('arial', 14, 'bold'), width=10, height=2,
-                                  bg='tan', text='Exit', command=Exit2,).grid(row=3, column=4)
+            self.Exit = Button(ABCD2, bd=1, fg='black', font=('arial', 15, 'bold'), width=20, height=2,
+                                  bg='blanched almond', text='Exit', command=Exit2,).grid(row=3, column=4)
 
 
         #exit
