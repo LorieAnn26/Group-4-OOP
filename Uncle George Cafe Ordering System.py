@@ -470,7 +470,7 @@ class Customer:
 
             self.txtReciept.insert(END,'\t\t        Uncle George Cafe\n')
             self.txtReciept.insert(END,'\t1476 Vicente Cruz St. Corner Dimasalang Rd.,\n\t\t        Manila, Philippines\n\n')
-            self.txtReciept.insert(END,'CustomerRef: \t'+CustomerRef.get()+'\n')
+            self.txtReciept.insert(END,'Reference No: \t'+CustomerRef.get()+'\n')
             self.txtReciept.insert(END, Date2.get() + '\t\t\t\t\t' + Time2.get() + '\n')
             self.txtReciept.insert(END, '------------------------------------------------------------------------------------------------')
             self.txtReciept.insert(END,'\nItems\t\t\t\t\t'+'Cost\n')
