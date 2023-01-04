@@ -309,12 +309,12 @@ class Customer:
         self.txtCus_Ref = Entry (ABC3, font=('arial',12,'bold'),textvariable=CustomerRef, state='readonly', width=15)
         self.txtCus_Ref.grid(row=1, column=1,pady=3, padx=20)
 
-        self.lblTotalQuantity = Label (ABC3, font=('arial',12,'bold'), text='Total Quantity', bd=2, fg='black', bg='#b16d3c')
+        self.lblTotalQuantity = Label (ABC3, font=('arial',12,'bold'), text='Total Quantity:', bd=2, fg='black', bg='#b16d3c')
         self.lblTotalQuantity.grid(row=2, column=0, sticky=W)
         self.txtTotalQuantity = Entry (ABC3, font=('arial',12,'bold'),textvariable=TotalQuantity, state='readonly', width=15)
         self.txtTotalQuantity.grid(row=2, column=1,pady=3, padx=20)
 
-        self.lblTotalCost = Label (ABC3, font=('arial',12,'bold'), text='Total Cost', bd=2, fg='black', bg='#b16d3c')
+        self.lblTotalCost = Label (ABC3, font=('arial',12,'bold'), text='Total Cost:', bd=2, fg='black', bg='#b16d3c')
         self.lblTotalCost.grid(row=3, column=0, sticky=W)
         self.txtTotalCost = Entry (ABC3, font=('arial',12,'bold'),textvariable=TotalCost,state='readonly', width=15)
         self.txtTotalCost.grid(row=3, column=1,pady=3, padx=20)
